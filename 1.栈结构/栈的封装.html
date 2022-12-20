@@ -44,18 +44,33 @@
         return resultString
       }
     }
-    function dec2bin (decNumber) {
 
+    function dec2bin (decNumber) {
+      var stack = new Stack()
+      while (decNumber > 0) {
+        stack.push(decNumber % 2)
+        decNumber = Math.floor(decNumber / 2)
+      }
+      var binaryString = ''
+      while (!stack.isEmpty()) {
+        binaryString += stack.pop()
+      }
+      return binaryString
     }
-    var s = new Stack()
-    s.push(1)
-    s.push(2)
-    s.pop()
-    alert(s.peek())
-    console.log(s.isEmpty())
-    s.pop()
-    console.log(s.isEmpty())
-    console.log(s.toString()) 
+    alert(dec2bin(100))
+    alert(dec2bin(10))
+    alert(dec2bin(1000))
+
+
+    // var s = new Stack()
+    // s.push(1)
+    // s.push(2)
+    // s.pop()
+    // alert(s.peek())
+    // console.log(s.isEmpty())
+    // s.pop()
+    // console.log(s.isEmpty())
+    // console.log(s.toString()) 
   </script>
 </body>
 
