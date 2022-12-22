@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装队列</title>
+</head>
+
+<body>
+  <script>
+    function Queue () {
+      // 属性
+      this.items = []
+
+      Queue.prototype.enqueue = function (element) {
+        this.items.push(element)
+      }
+
+      Queue.prototype.dequeue = function () {
+        return this.items.shift()
+      }
+
+      Queue.prototype.front = function () {
+        return this.items[0]
+      }
+
+      Queue.prototype.isEmpty = function () {
+        return this.items.length == 0
+      }
+
+      Queue.prototype.size = function () {
+        return this.items.length
+      }
+
+      Queue.prototype.toString = function () {
+        var resultString = ''
+        for (var i = 0; i < this.items.length; i++) {
+          resultString += this.items[i] + ''
+        }
+        return resultString
+      }
+    }
+
+    var queue = new Queue()
+    // queue.enqueue(1)
+    // queue.enqueue(2)
+    // queue.dequeue()
+    // console.log(queue.isEmpty())
+    // console.log(queue.toString())
+
+    // 击鼓传花
+    for (let index = 0; index < 5; index++) {
+      queue.enqueue(index)
+    }
+    console.log(queue.toString())
+    while (queue.size() > 1) {
+      for (let i = 0; i < 4; i++) {
+        var front = queue.front()
+        queue.enqueue(queue.dequeue())
+        console.log(queue.toString())
+      }
+      queue.dequeue()
+    }
+    console.log(queue.toString())
+  </script>
+</body>
+
+</html>
