@@ -43,7 +43,52 @@
         // 3.length+1
         this.length += 1
       }
+
+      // 2.将链表转成字符串形式
+      // 2.1 toString方法
+      DoublyLinkedList.prototype.toString = function () {
+        return this.backwardString()
+      }
+
+      // 2.2 forwardString方法
+      DoublyLinkedList.prototype.forwardString = function () {
+        // 1.定义变量
+        var current = this.tail
+        var resultString = ""
+
+        // 2.依次向前遍历,获取每一个节点
+        while (current) {
+          resultString += current.data + " "
+          current = current.prev
+        }
+        return resultString
+      }
+
+      // 2.3 backwardString方法
+      DoublyLinkedList.prototype.backwardString = function () {
+        // 1.定义变量
+        var current = this.head
+        var resultString = ""
+
+        // 2.依次向后遍历,获取每一个节点
+        while (current) {
+          resultString += current.data + " "
+          current = current.next
+        }
+        return resultString
+      }
     }
+
+    var list = new DoublyLinkedList()
+
+    list.append("111")
+    list.append("222")
+    list.append("333")
+    list.append("444")
+
+    console.log(list.toString())
+    console.log(list.forwardString())
+    console.log(list.backwardString()) 
   </script>
 </body>
 
