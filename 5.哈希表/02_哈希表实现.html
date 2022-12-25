@@ -5,15 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>封装集合</title>
+  <title>哈希表实现</title>
 </head>
 
 <body>
   <script>
-    // 封装集合类
-    function Set () {
+    // 封装哈希表类
+    function HashTable () {
       // 属性
-      this.items = {}
+      this.storage = [] //元素存放的地方
+      this.count = 0 //已存放的个数
+      this.limit = 7 //数组总容量
+      //加载因子 loadFactor>0.75优 <0.25劣
+
       // 方法
     }
   </script>

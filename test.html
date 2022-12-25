@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    for (var i = 2; i <= 2000000; i++) {//4
+      //假设所有的数都是质数
+      var flag = true
+      //通过嵌套循环找到 i 除了1 和本身以外所有可能出现的因子
+      for (var j = 2; j <= i / 2; j++) {
+        //判断 i 是否为质数
+        if (i % j == 0) {//能进到当前的分支 说明不是质数
+          flag = false
+          break
+        }
+      }
+      if (flag) {
+        // if (flag == true) {
+        console.log(i)
+      }
+    }
+  </script>
+</body>
+
+</html>
